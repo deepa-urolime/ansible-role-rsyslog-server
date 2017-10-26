@@ -1,0 +1,13 @@
+---
+# tasks file for ansible-role-rsyslog-server
+#
+- name: upgrade all packages
+  yum: name=* state=latest
+
+- name: install rsyslog
+  yum: name=rsyslog state=installed
+  notify: Start rsyslog
+
+- name: template rsyslog config
+  template: src=rsyslog.conf.j2 dest={{ rsyslog_conf_path }} owner=root group=root mode=0644 backup=yes
+  notify: Restart rsyslog

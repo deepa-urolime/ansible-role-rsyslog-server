@@ -1,0 +1,4 @@
+---
+# vars file for ansible-role-rsyslog-client
+rsyslog_conf_path: "/etc/rsyslog.conf"
+ip_address: 10.10.10.1
