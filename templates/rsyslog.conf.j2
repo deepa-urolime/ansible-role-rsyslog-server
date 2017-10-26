@@ -90,4 +90,7 @@ local7.*                                                /var/log/boot.log
 #*.* @@remote-host:514
 # ### end of the forwarding rule ###
 #*.* @@10.10.10.1:514
+$template TmplAuth, "/var/log/%HOSTNAME%/%PROGRAMNAME%.log"
+authpriv.*   ?TmplAuth
+*.info,mail.none,authpriv.none,cron.none   ?TmplMsg
 
